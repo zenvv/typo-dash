@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: "Space Mono", monospace;
+  font-family: "DM Mono", monospace;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -14,5 +14,21 @@
 }
 
 body {
-  @apply bg-gray-100 text-gray-900;
+  @apply text-gray-900 bg-gray-100;
+}
+
+.big-input {
+  @apply w-full px-4 py-6 text-lg font-bold tracking-widest text-center transition-all border-2 border-gray-300 rounded-xl outline outline-transparent focus:outline-offset-2 focus:outline-2 focus:outline-gray-600/50 focus:text-xl focus:p-8 text-gray-50 bg-gray-950;
+}
+
+.typing-input {
+  @apply w-full px-4 py-6 text-xl font-bold tracking-widest text-center transition-all bg-transparent border-none outline-none;
+}
+
+.main-button {
+  @apply flex items-center justify-center gap-2 p-2 px-4 text-gray-100 transition-all bg-gray-900 rounded-lg hover:bg-gray-800 outline outline-transparent outline-2 hover:outline-offset-2 hover:outline-gray-600/30 active:scale-90 active:outline-offset-0 active:bg-gray-700 active:text-gray-50 disabled:hidden;
+}
+
+.locked-button {
+  @apply flex items-center justify-center gap-2 p-2 px-4 text-sm text-gray-500 transition-all bg-gray-300 rounded-lg ring-2 ring-inset hover:bg-gray-200 ring-gray-200 hover:text-gray-600 hover:ring-gray-400 active:scale-90 active:bg-gray-700 active:text-gray-300 active:ring-0;
 }
