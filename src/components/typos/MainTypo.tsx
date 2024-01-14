@@ -89,49 +89,50 @@ function MainTypo() {
         )}
 
         {/* lock group */}
-        <main
-          className={`flex justify-between w-full gap-2 p-4 px-6 my-4 border rounded-xl transition-all border-gray-700/20 darK:border-gray-300/20 ${
-            !locked
-              ? "bg-gray-50 dark:bg-gray-950 items-center"
-              : "items-center"
-          }`}
-        >
-          <span>
-            {!locked && (
-              <p className="text-sm font-bold leading-none text-gray-400 dark:text-gray-600">
-                typo choosed
-              </p>
-            )}
-            <p
-              className={`select-none w-full overflow-hidden dark:text-gray-400 text-gray-600 ${
-                !locked &&
-                "text-xl font-bold text-gray-950 dark:text-gray-50 py-3"
-              }`}
-            >
-              {wordTyped === "" ? (
-                <p className="italic opacity-35">null</p>
-              ) : (
-                wordTyped
-              )}
-            </p>
-            <span className="flex items-center justify-start gap-16 text-sm text-gray-500">
-              <p>Characters: {wordTyped.length}</p>
-              <p>Complexity: {wordStrength || "0%"}</p>
-            </span>
-          </span>
-
-          <button
-            type="submit"
-            className={locked ? "main-button" : "locked-button text-sm"}
-            onClick={handleLock}
-            disabled={wordTyped.length < 4 || wordTyped.length > 48}
+        {wordTyped !== "" && (
+          <main
+            className={`flex justify-between w-full gap-2 p-4 px-6 my-4 border rounded-xl transition-all border-gray-700/20 darK:border-gray-300/20 ${
+              !locked
+                ? "bg-gray-50 dark:bg-gray-950 items-center"
+                : "items-center"
+            }`}
           >
-            {locked ? <IoLockOpen /> : <IoLockClosed />}
-            {locked ? "lock" : "unlock"}
-          </button>
-        </main>
-      </form>
+            <span>
+              {!locked && (
+                <p className="text-sm font-bold leading-none text-gray-400 dark:text-gray-600">
+                  typo choosed
+                </p>
+              )}
+              <p
+                className={`select-none w-full overflow-hidden dark:text-gray-400 text-gray-600 ${
+                  !locked &&
+                  "text-xl font-bold text-gray-950 dark:text-gray-50 py-3"
+                }`}
+              >
+                {wordTyped === "" ? (
+                  <p className="italic opacity-35">null</p>
+                ) : (
+                  wordTyped
+                )}
+              </p>
+              <span className="flex items-center justify-start gap-16 text-sm text-gray-500">
+                <p>Characters: {wordTyped.length}</p>
+                <p>Complexity: {wordStrength || "0%"}</p>
+              </span>
+            </span>
 
+            <button
+              type="submit"
+              className={locked ? "main-button" : "locked-button text-sm"}
+              onClick={handleLock}
+              disabled={wordTyped.length < 4 || wordTyped.length > 48}
+            >
+              {locked ? <IoLockOpen /> : <IoLockClosed />}
+              {locked ? "lock" : "unlock"}
+            </button>
+          </main>
+        )}
+      </form>
       {!locked && <AnswersTypos typo={wordTyped} />}
     </div>
   );
