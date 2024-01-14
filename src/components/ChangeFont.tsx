@@ -17,7 +17,6 @@ function ChangeFont() {
       <select className="font-medium bg-transparent rounded-none outline-none [data-open]:rounded-none" name="fonts" id="font-selector" onChange={e => setColor(e.target.value)}>
         <option className="bg-gray-100 rounded-none dark:bg-gray-900" value="DM Mono, monospace">Monospace</option>
         <option className="bg-gray-100 rounded-none dark:bg-gray-900" value="Inter, sans-serif">Sans Serif</option>
-        <option className="bg-gray-100 rounded-none dark:bg-gray-900" value="Cormorant Garamond, serif">Serif</option>
       </select>
     </span>
   );

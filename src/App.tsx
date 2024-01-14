@@ -1,5 +1,7 @@
-import Typing from "./components/Typing";
+import MainTypo from "./components/typos/MainTypo";
 import Navbar from "./components/Navbar";
+import ToggleTheme from "./components/ToggleTheme";
+import ChangeFont from "./components/ChangeFont";
 
 function App() {
   return (
@@ -7,9 +9,9 @@ function App() {
       <div className="flex flex-col items-center justify-center w-full h-full max-w-4xl">
         <Navbar />
         <main className="flex-1 w-full h-full my-8">
-          <Typing />
+          <MainTypo />
         </main>
-        <footer className="flex items-center justify-center w-full p-4 text-gray-500">
+        <footer className="flex items-center justify-between w-full p-2 text-gray-500">
           <p className="text-xs">
             created by:{" "}
             <a
@@ -20,6 +22,10 @@ function App() {
               zenvv
             </a>
           </p>
+          <span className="flex items-center gap-2">
+            <ChangeFont />
+            <ToggleTheme />
+          </span>
         </footer>
       </div>
     </body>

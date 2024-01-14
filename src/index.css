@@ -2,8 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -25,7 +23,7 @@ body {
 }
 
 .big-input {
-  @apply w-full px-4 py-6 text-lg font-bold tracking-widest text-center transition-all border-2 border-gray-300 dark:border-gray-700 rounded-xl outline outline-transparent focus:outline-offset-2 focus:outline-2 focus:outline-gray-600/50 dark:focus:outline-gray-400/50 focus:text-xl focus:p-8 text-gray-50 bg-gray-950 dark:bg-gray-50 dark:text-gray-950;
+  @apply w-full h-full px-4 py-6 text-lg font-bold tracking-widest text-center transition-all border-2 border-gray-300 dark:border-gray-700 rounded-xl outline outline-transparent focus:outline-offset-2 focus:outline-2 focus:outline-gray-600/50 dark:focus:outline-gray-400/50 focus:text-xl focus:p-8 text-gray-50 bg-gray-950 dark:bg-gray-50 dark:text-gray-950;
 }
 
 .typing-input {
@@ -33,11 +31,15 @@ body {
 }
 
 .main-button {
-  @apply flex items-center justify-center gap-2 p-2 px-4 text-gray-100 transition-all bg-gray-900 rounded-lg dark:text-gray-900 dark:bg-gray-100 hover:bg-gray-800 outline outline-transparent outline-2 hover:outline-offset-2 hover:outline-gray-600/30 dark:hover:outline-gray-400/30 active:scale-90 active:outline-offset-0 active:bg-gray-700 active:text-gray-50 disabled:hidden dark:active:bg-gray-400 dark:active:text-gray-900;
+  @apply flex items-center justify-center gap-2 p-2 px-4 text-gray-100 transition-all bg-gray-900 rounded-lg dark:text-gray-900 dark:bg-gray-100 hover:bg-gray-800 dark:hover:bg-gray-200 outline outline-transparent outline-2 hover:outline-offset-2 hover:outline-gray-600/30 dark:hover:outline-gray-400/30 active:scale-90 active:outline-offset-0 active:bg-gray-700 active:text-gray-50 disabled:hidden dark:active:bg-gray-400 dark:active:text-gray-900 focus:outline-2 focus:outline-gray-500;
+}
+
+.secondary-button {
+  @apply flex items-center justify-center gap-2 p-1 px-2 transition-all rounded-md hover:bg-gray-300 dark:hover:bg-gray-800 outline outline-1 outline-gray-500 hover:outline-offset-2 hover:outline-gray-600/30 dark:hover:outline-gray-400/30 active:outline-offset-0 active:bg-gray-400 disabled:dark:bg-gray-500 disabled:dark:text-gray-700 disabled:bg-gray-300 disabled:text-gray-400 disabled:outline-0 disabled:opacity-50 dark:active:bg-gray-700 focus:outline-2 focus:outline-gray-500;
 }
 
 .locked-button {
-  @apply flex items-center justify-center gap-2 p-2 px-4 text-sm text-gray-500 transition-all bg-gray-300 rounded-lg dark:bg-gray-800 ring-2 ring-inset hover:bg-gray-200 dark:hover:bg-gray-700 ring-gray-200 dark:ring-gray-700 hover:text-gray-600 dark:hover:text-gray-400 hover:ring-gray-400 dark:hover:ring-gray-500 active:scale-90 active:bg-gray-700 dark:active:bg-gray-300 active:text-gray-300 dark:active:text-gray-700 active:ring-0;
+  @apply flex items-center justify-center gap-2 p-2 px-4 text-gray-500 transition-all bg-gray-300 rounded-lg dark:bg-gray-800 ring-2 ring-inset hover:bg-gray-200 dark:hover:bg-gray-700 ring-gray-200 dark:ring-gray-700 hover:text-gray-600 dark:hover:text-gray-400 hover:ring-gray-400 dark:hover:ring-gray-500 active:scale-90 active:bg-gray-700 dark:active:bg-gray-300 active:text-gray-300 dark:active:text-gray-700 active:ring-0 focus:outline-2 focus:outline-gray-500;
 }
 
 .icon-error, .icon-correct{
