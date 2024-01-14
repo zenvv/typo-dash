@@ -13,7 +13,7 @@ function App() {
           <p className="text-xs">
             created by:{" "}
             <a
-              className="hover:underline hover:font-semibold hover:text-gray-950"
+              className="transition-all hover:underline hover:font-semibold hover:text-gray-950 dark:hover:text-gray-50"
               target="_blank"
               href="https://github.com/zenvv"
             >

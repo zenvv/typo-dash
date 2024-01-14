@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
-import { IoLockClosed, IoLockOpen } from "react-icons/io5";
+import { IoLockClosed, IoLockOpen, IoCheckmarkCircle, IoCloseCircle } from "react-icons/io5";
 
 function Typing() {
   const [wordTyped, setWordTyped] = useState<string>("");
@@ -62,19 +62,19 @@ function Typing() {
 
       {/* lock group */}
       <main
-        className={`flex  justify-between w-full gap-2 p-4 px-6 my-4 border rounded-xl transition-all border-gray-700/20 ${
-          !locked ? "bg-gray-50 items-start" : "items-center"
+        className={`flex  justify-between w-full gap-2 p-4 px-6 my-4 border rounded-xl transition-all border-gray-700/20 darK:border-gray-300/20 ${
+          !locked ? "bg-gray-50 dark:bg-gray-950 items-start" : "items-center"
         }`}
       >
         <span>
           {!locked && (
-            <p className="text-sm font-bold leading-none text-gray-400">
+            <p className="text-sm font-bold leading-none text-gray-400 dark:text-gray-600">
               typo choosed
             </p>
           )}
           <p
-            className={`w-full overflow-hidden text-gray-600 ${
-              !locked && "text-xl font-bold text-gray-950 py-3"
+            className={`w-full overflow-hidden dark:text-gray-400 text-gray-600 ${
+              !locked && "text-xl font-bold text-gray-950 dark:text-gray-50 py-3"
             }`}
           >
             {wordTyped == "" ? (
@@ -101,7 +101,7 @@ function Typing() {
 
       {/* typing group */}
       {!locked && (
-        <div className="flex flex-col items-center justify-center w-full gap-2 p-4 my-4 text-gray-900 bg-gray-200 rounded-lg">
+        <div className="flex flex-col items-start justify-center w-full gap-2 p-4 my-4 text-gray-900 bg-gray-200 rounded-lg dark:text-gray-100 dark:bg-gray-800">
           <label
             htmlFor="main-input"
             className="p-1 px-3 text-sm italic rounded-lg opacity-70 bg-gray-600/20"
@@ -115,7 +115,7 @@ function Typing() {
             placeholder="type here"
             onChange={handleAnswer}
           />
-          <p>{typoAnswer ? "true" : "false"}</p>
+          {typoAnswer ? <IoCheckmarkCircle className="icon-correct" /> : <IoCloseCircle className="icon-error" />}
         </div>
       )}
     </div>
