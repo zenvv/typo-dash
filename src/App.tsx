@@ -11,7 +11,7 @@ function App() {
         <main className="flex-1 w-full h-full my-8">
           <MainTypo />
         </main>
-        <footer className="flex items-center justify-between w-full p-2 text-gray-500">
+        <footer className="flex items-center justify-between w-full p-4 text-gray-500">
           <p className="text-xs">
             created by:{" "}
             <a

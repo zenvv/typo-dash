@@ -48,7 +48,7 @@ function AnswersTypos({ typo }: AnswersProps) {
   }
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full transition-all">
       <form
         onSubmit={handleAnswer}
         className="flex flex-col items-center justify-center w-full gap-2 p-4 my-4 text-gray-900 bg-gray-200 rounded-lg dark:text-gray-100 dark:bg-gray-800"

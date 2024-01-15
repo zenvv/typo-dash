@@ -52,16 +52,16 @@ function MainTypo() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-full">
+    <div className="flex flex-col items-center justify-center w-full h-full transition-all">
       <form
         onSubmit={handleLock}
-        className={`flex flex-col items-center justify-center w-full h-full ${
+        className={`flex flex-col items-center justify-center transition-all w-full h-full ${
           !locked ? "h-auto" : ""
         }`}
       >
         {/* input part */}
         {locked && (
-          <span className="flex items-center justify-center w-full gap-4 transition-all h-28">
+          <span className="flex flex-col items-end justify-center w-full h-40 gap-4 transition-all">
             <input
               type="text"
               id="main-typo"
@@ -73,65 +73,89 @@ function MainTypo() {
               min={4}
               max={48}
             />
-            <span className="flex flex-col gap-2">
-              <button
-                type="button"
-                className="text-sm secondary-button"
-                onClick={handleClear}
-              >
-                <FaEraser /> Clear
-              </button>
-              <button className="text-sm secondary-button" disabled>
-                <FiEdit /> Edit
-              </button>
-            </span>
+            <div className="flex items-center justify-between w-full px-2">
+              <span className="flex gap-3">
+                <button
+                  type="button"
+                  disabled
+                  className="text-sm secondary-button"
+                >
+                  timer
+                </button>
+                <button
+                  type="button"
+                  disabled
+                  className="text-sm secondary-button"
+                >
+                  chances
+                </button>
+                <button
+                  type="button"
+                  disabled
+                  className="text-sm secondary-button"
+                >
+                  modes
+                </button>
+              </span>
+              <span className="flex gap-3">
+                <button
+                  type="button"
+                  className="text-sm secondary-button"
+                  disabled
+                >
+                  <FiEdit /> Edit
+                </button>
+                <button
+                  type="button"
+                  className="text-sm secondary-button"
+                  onClick={handleClear}
+                  disabled={wordTyped === "" ? true : false}
+                >
+                  <FaEraser /> Clear
+                </button>
+              </span>
+            </div>
           </span>
         )}
 
         {/* lock group */}
-        {wordTyped !== "" && (
-          <main
-            className={`flex justify-between w-full gap-2 p-4 px-6 my-4 border rounded-xl transition-all border-gray-700/20 darK:border-gray-300/20 ${
-              !locked
-                ? "bg-gray-50 dark:bg-gray-950 items-center"
-                : "items-center"
-            }`}
-          >
-            <span>
-              {!locked && (
+        <main
+          className={`flex justify-between w-full gap-2 p-4 px-6 my-4 border rounded-xl transition-all border-gray-700/20 darK:border-gray-300/20 ${
+            wordTyped === "" && "opacity-0 scale-y-0"
+          } ${
+            !locked
+              ? "bg-gray-50 dark:bg-gray-950 items-center"
+              : "items-center"
+          }`}
+        >
+          <span>
+            {!locked && (
+              <>
                 <p className="text-sm font-bold leading-none text-gray-400 dark:text-gray-600">
                   typo choosed
                 </p>
-              )}
-              <p
-                className={`select-none w-full overflow-hidden dark:text-gray-400 text-gray-600 ${
-                  !locked &&
-                  "text-xl font-bold text-gray-950 dark:text-gray-50 py-3"
-                }`}
-              >
-                {wordTyped === "" ? (
-                  <p className="italic opacity-35">null</p>
-                ) : (
-                  wordTyped
-                )}
-              </p>
-              <span className="flex items-center justify-start gap-16 text-sm text-gray-500">
-                <p>Characters: {wordTyped.length}</p>
-                <p>Complexity: {wordStrength || "0%"}</p>
-              </span>
-            </span>
 
-            <button
-              type="submit"
-              className={locked ? "main-button" : "locked-button text-sm"}
-              onClick={handleLock}
-              disabled={wordTyped.length < 4 || wordTyped.length > 48}
-            >
-              {locked ? <IoLockOpen /> : <IoLockClosed />}
-              {locked ? "lock" : "unlock"}
-            </button>
-          </main>
-        )}
+                <p className="w-full py-3 overflow-hidden text-xl font-bold select-none text-gray-950 dark:text-gray-50">
+                  {wordTyped}
+                </p>
+              </>
+            )}
+            <span className="flex items-center justify-start gap-16 text-sm text-gray-500">
+              <p>Characters: {wordTyped.length}</p>
+              <p>Complexity: {wordStrength || "0%"}</p>
+            </span>
+          </span>
+
+          <button
+            type="submit"
+            className={locked ? "main-button" : "locked-button text-sm"}
+            onClick={handleLock}
+            disabled={wordTyped.length < 4 || wordTyped.length > 48}
+          >
+            {locked ? <IoLockOpen /> : <IoLockClosed />}
+            {locked ? "lock" : "unlock"}
+          </button>
+        </main>
       </form>
       {!locked && <AnswersTypos typo={wordTyped} />}
     </div>
